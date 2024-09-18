@@ -7,13 +7,13 @@ import { voteOnPoll } from './routes/vote-on-poll';
 import { pollResults } from './ws/poll-result';
 
 const app = fastify()
+app.register(websocket)
 
 app.register(cookie, {
   secret: process.env.SECRET,
   hook: 'onRequest',
 })
 
-app.register(websocket)
 
 app.register(createPoll)
 app.register(getPollById)

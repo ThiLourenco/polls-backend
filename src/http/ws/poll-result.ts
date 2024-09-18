@@ -1,35 +1,25 @@
 import { FastifyInstance } from "fastify";
 
 export async function pollResults(app: FastifyInstance) {
-//   app.get('/polls/:pollId/results', { websocket: true }, (connection, request) => {
-//     connection.socket.on('message', (message: string) => {
-//       connection.socket.send('you sent: ' + message);
-//     });
+  app.get<{ Params: { pollId: string } }>('/polls/:pollId/results', { websocket: true }, (connection, request) => {
+    const socket = connection;
+
+    socket.on('message', (message: string) => {
+      console.log('Message received:', message);
+
+      socket.send('you sent: ' + message);
+    });
   
-//     // Enviar "ping" regularmente para manter a conexão viva
-//     const interval = setInterval(() => {
-//       if (connection.socket.readyState === connection.socket.OPEN) {
-//         connection.socket.ping();
-//       }
-//     }, 30000); // A cada 30 segundos
+    const interval = setInterval(() => {
+      if (socket.readyState === socket.OPEN) {
+        socket.send('ping');
+      }
+    }, 500);
   
-//     // Limpar intervalo quando a conexão for fechada
-//     connection.socket.on('close', () => {
-//       clearInterval(interval);
-//     });
-//   });
 
-app.get('/polls/:pollId/results', { websocket: true }, (connection, request) => {
-  connection.socket.on('message', (message: string) => {
-    connection.socket.send('you sent: ' + message);
-  });
+    socket.on('close', () => {
+      clearInterval(interval);
+    });
 
-  connection.socket.on('error', (err: any) => {
-    console.error('WebSocket error:', err);
   });
-
-  connection.socket.on('close', (code: any, reason: any) => {
-    console.log(`WebSocket closed: ${code}, Reason: ${reason}`);
-  });
-});  
 }
