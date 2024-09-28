@@ -45,7 +45,7 @@ export async function voteOnPoll(app: FastifyInstance) {
         })
 
       } else if (userPreviousVoteOnPoll) {
-        return reply.status(400).send({message: 'You already voted on this poll'})
+        return reply.status(400).send({message: 'Você já votou nesta canditado'})
       }
     }
 
