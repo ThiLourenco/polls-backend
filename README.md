@@ -12,7 +12,7 @@
 
 ## Polls-Backend
 
-This is the backend of the delivery system, developed in Node.js, Express, Typescript, Prisma ORM with PostgreSQL and Swagger for API documentation.
+This is the backend of the polls system, developed in Node.js, fastify, Typescript, Prisma ORM with PostgreSQL.
 
 ## Requirements
 
