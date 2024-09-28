@@ -1,11 +1,5 @@
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=%20DEVELOPMENT&color=GREEN&style=for-the-badge)
 
-<p align="center">
-<img src="https://img.shields.io/github/contributors/ThiLourenco/polls-backend" alt="GitHub contributors" />
-<img src="https://img.shields.io/github/discussions/ThiLourenco/polls-backend" alt="GitHub discussions" />
-<img src="https://img.shields.io/github/issues/ThiLourenco/polls-backend" alt="GitHub issues" />
-<img src="https://img.shields.io/github/issues-pr/ThiLourenco/polls-backend" alt="GitHub pull request" />
-</p>
 
 *This readme can also be read in [Portuguese](README-pt-BR.md) or [English](README.md).*
 
