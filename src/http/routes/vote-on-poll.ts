@@ -45,7 +45,7 @@ export async function voteOnPoll(app: FastifyInstance) {
         })
 
       } else if (userPreviousVoteOnPoll) {
-        return reply.status(400).send({message: 'Você já votou nesta canditado'})
+        return reply.status(400).send({message: 'Você já votou nesse canditado'})
       }
     }
 
@@ -71,11 +71,23 @@ export async function voteOnPoll(app: FastifyInstance) {
     // increment one in each poll
     const votes = await redis.zincrby(pollId, 1, pollOptionId) 
 
+    // return title 
+    const option = await prisma.pollOption.findUnique({
+      where: {
+        id: pollOptionId,
+      },
+      select: {
+        title: true,
+      },
+    });
+
     voting.publish(pollId, {
       pollOptionId,
       votes: Number(votes),
     })
     
-    return reply.status(201).send()
+    return reply.status(201).send({
+      optionTitle: option?.title
+    })
   })
 }
