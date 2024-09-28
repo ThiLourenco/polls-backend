@@ -1,6 +1,8 @@
 import fastify from 'fastify';
 import cookie from '@fastify/cookie';
 import websocket from '@fastify/websocket';
+import cors from "@fastify/cors";
+
 import { createPoll } from './routes/create-poll'
 import { getPollById } from './routes/get-poll';
 import { voteOnPoll } from './routes/vote-on-poll';
@@ -8,7 +10,9 @@ import { pollResults } from './ws/poll-result';
 
 const app = fastify()
 app.register(websocket)
-
+app.register(cors, {
+  origin: '*',
+})
 app.register(cookie, {
   secret: process.env.SECRET,
   hook: 'onRequest',

@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@fastify/cookie": "^9.4.0",
+    "@fastify/cors": "^8.5.0",
     "@fastify/websocket": "^10.0.1",
     "@prisma/client": "5.19.1",
     "fastify": "^4.28.1",
