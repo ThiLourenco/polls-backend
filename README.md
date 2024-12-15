@@ -8,6 +8,8 @@
 
 This is the backend of the polls system, developed in Node.js, fastify, Typescript, Prisma ORM with PostgreSQL.
 
+Front-end: [Github](https://github.com/ThiLourenco/app-votes)
+
 ## Requirements
 
 - Node.js Version >= v20.17.0

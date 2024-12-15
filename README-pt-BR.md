@@ -8,6 +8,8 @@
 
 Este é o backend para o sistema de votos, desenvolvido utilizando Node.js, Express, Typescript, Prisma ORM com PostgreSQL.
 
+Front-end: [Github](https://github.com/ThiLourenco/app-votes)
+
 ## Requisitos
 
 - Node.js v20.0.0 ou superior
